@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html ng-app="MainApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EXAM-ALMUNDO</title>
+	<!-- Custom styles for this template -->
+	<link href="assets/css/layout.min.css" rel="stylesheet">
+	<!-- Cargamos bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!-- Cargamos angular -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<!-- Cargamos el javascript de angular -->
+	<script src="core.js"></script>
+	
+</head>
+<body ng-controller="mainController">
+	<div class="container">
+		<nav>
+			<ul>
+			    <img src="assets/images/logo-almundo.svg">
+			</ul>
+		</nav>
+		<div class="row">
+	    <!-- directive angular and ng-repeat -->
+
+		<!-- Aside de  filtros -->
+		<div class="col-sm-4 col-sm-offset-1 text-center">
+			<form name="formRating">
+				<h1>Filters Directive</h1>
+			</form>
+		</div>
+
+		<table class="table table-striped">
+			<tr class="info">
+				<td>name</td>
+				<td>stars</td>
+				<td>price</td>
+				<td>image</td>
+				<td>amenities</td>
+			</tr>
+			<tr ng-repeat="hotel in hoteles" ng-click="selectHotel(hotel)">
+				<td>{{ hotel.name }}</td>
+				<td>{{ hotel.stars }}</td>
+				<td>{{ hotel.price }}</td>
+				<td>{{ hotel.image }}</td>
+				<td>{{ hotel.amenities }}</td>						
+			</tr>
+		</table>					
+	</div>
+		
+	
+</body>
+</html>

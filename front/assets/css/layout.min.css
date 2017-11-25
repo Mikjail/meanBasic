@@ -1,0 +1,10 @@
+nav {
+    padding: 1em;
+    background-color: #3F51B5;
+    clear: left;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
