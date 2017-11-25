@@ -11,6 +11,28 @@ exports.getHotel = function (req, res){
 			);
 }
 
+// Obtiene Hotel de la base de datos por id
+exports.getHotelById = function (req, res){
+	Hotel.find({_id : req.params.Hotel_id},
+		function(err, Hotel) {
+			if (err)
+				res.send(err)
+					res.json(Hotel); // devuelve todas las Hotels en JSON		
+				}
+			);
+}
+
+// Obtiene Hotel de la base de datos por start
+exports.getHotelByStart = function (req, res){
+	Hotel.find(({_start : req.params.Hotel_start},
+		function(err, Hotel) {
+			if (err)
+				res.send(err)
+					res.json(Hotel); // devuelve todas las Hotels en JSON		
+				}
+			);
+}
+
 // Guarda un objeto Hotel en base de datos
 exports.setHotel = function(req, res) {
 
