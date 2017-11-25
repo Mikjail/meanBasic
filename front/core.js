@@ -1,6 +1,9 @@
-angular.module('MainApp', [])
+var app = angular.module('MainApp', [])
 
 function mainController($scope, $http) {
+	alert("controller!");
+	loaderHotel($scope, $http);
+	alert("salio el load!");
 	$scope.newHotel = {};
 	$scope.Hotels = {};
 	$scope.selected = false;
@@ -59,4 +62,11 @@ function mainController($scope, $http) {
 	};
 
 }
+
+// Obtenemos todos los hoteles de la base de datos
+function loaderHotel($scope, $http) {
+	$scope.hotel = $http.get('/api/HotelAll');
+	console.log("nice:" + $scope.hotel);
+}
+
 
