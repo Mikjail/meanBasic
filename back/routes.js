@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 	// devolver todos los Hoteles
 	app.get('/api/hotel', Controller.getHotel);
-    // devolver hotel por id
+	// devolver hotel por id
 	app.get('/api/hotelById', Controller.getHotelById);
 	// devolver hotel por name
 	app.get('/api/hotelByName', Controller.getHotelByName);

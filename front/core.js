@@ -8,6 +8,35 @@ function mainController($scope, $http) {
 	$scope.Hotels = {};
 	$scope.selected = false;
 
+	$scope.hoteles = [{
+		    "id": "249942",
+		    "name": "Hotel Stefanos",
+		    "stars": 3,
+		    "price": 994.18,
+		    "image": "4900059_30_b.jpg",
+		    "amenities": [
+		      "safety-box",
+		      "nightclub",
+		      "deep-soaking-bathtub",
+		      "beach",
+		      "business-center"
+		    ]
+		  },
+		  {
+		    "id": "161901",
+		    "name": "Hotel Santa Cruz",
+		    "stars": 3,
+		    "price": 1267.57,
+		    "image": "6623490_6_b.jpg",
+		    "amenities": [
+		      "nightclub",
+		      "business-center",
+		      "bathtub",
+		      "newspaper",
+		      "restaurant"
+		    ]
+		  }];
+
 	// Obtenemos todos los datos de la base de datos
 	$http.get('/api/Hotel').success(function(data) {
 		$scope.Hotels = data;
@@ -61,12 +90,10 @@ function mainController($scope, $http) {
 		console.log($scope.newHotel, $scope.selected);
 	};
 
-}
-
-// Obtenemos todos los hoteles de la base de datos
-function loaderHotel($scope, $http) {
-	$scope.hotel = $http.get('/api/HotelAll');
+    // Obtenemos todos los hoteles de la base de datos
+    function loaderHotel($scope, $http) {
+	$scope.hotel = $http.get('/api/Hotel');
 	console.log("nice:" + $scope.hotel);
+    }
+
 }
-
-
