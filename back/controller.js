@@ -22,9 +22,20 @@ exports.getHotelById = function (req, res){
 			);
 }
 
+// Obtiene Hotel de la base de datos por name
+exports.hotelByName = function (req, res){
+	Hotel.find({_name : req.params.Hotel_name},
+		function(err, Hotel) {
+			if (err)
+				res.send(err)
+					res.json(Hotel); // devuelve todas las Hotels en JSON		
+				}
+			);
+}
+
 // Obtiene Hotel de la base de datos por start
 exports.getHotelByStart = function (req, res){
-	Hotel.find(({_start : req.params.Hotel_start},
+	Hotel.find({_start : req.params.Hotel_start},
 		function(err, Hotel) {
 			if (err)
 				res.send(err)

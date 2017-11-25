@@ -7,6 +7,8 @@ module.exports = function(app) {
 	app.get('/api/hotel', Controller.getHotel);
     // devolver hotel por id
 	app.get('/api/hotelById', Controller.getHotelById);
+	// devolver hotel por name
+	app.get('/api/hotelByName', Controller.getHotelByName);
 	// devolver hotel por start
 	app.get('/api/hotelByStart', Controller.getHotelByStart);
 	// Crear un nuevo Hotel
