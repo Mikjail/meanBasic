@@ -1,0 +1,66 @@
+.navbar-default{
+    background-color: #0C3E7D;
+    height: 80px;
+}
+
+h5{
+    color: rgb(79, 126, 214);
+}
+h1{
+    color: 	#ea6e17;
+}
+p{
+    margin: 0 0 5px;
+}
+.panel-filter{
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+    -webkit-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+    -moz-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+    box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+}
+.searchImg{
+    background: url('../assets/icons/filters/search.svg');
+    background-size: 20px 17px;
+    height: 17px;
+    width: 20px;
+    float: left;
+    color:#8BABBF;
+    margin-top:10px
+}
+
+.starImg{
+    background: url('../assets/icons/filters/star.svg');
+    background-size: 20px 17px;
+    height: 17px;
+    width: 20px;
+    float: left;
+    color:#8BABBF;
+    margin-top:10px;
+}
+
+.btn-default{
+    background-color: #002B7D;
+    color: white;
+}
+
+.panel-list{
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 65%;
+    -webkit-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+    -moz-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+    box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
+}
+.price-detail{
+    text-align: center;
+    border-left: 1px dashed;
+    padding: 5%;
+}
+.currency{
+    font-size: 26px;
+    font-weight: 300;
+    
+}
