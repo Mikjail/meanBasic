@@ -1,18 +1,18 @@
-<div class="col-xs-12">
+<div class="col-xs-12" hotel>
     <div class="imagen col-xs-12 col-md-4">
         {{hotel.image}}
     </div>
     <div class="col-xs-12 col-md-5">
         <h3 class="nombre-hotel">{{hotel.name}}</h3>
         <div>{{hotel.stars}}</div>
-        <div ng-repeat="amenitie in hotel.amenities">
-            {{amenitie}}
+            <div ng-repeat="amenitie in hotel.amenities" class="amenitie">
+            <div ng-class="amenitie"></div>
         </div>
     </div>    
     <div class="col-xs-12 col-md-3">        
         <p class="description"></p>
         <p class="price">
-            Ars {{hotel.price}}
+            Ars {{hotel.price | number:0}}
         </p>
         <div class="btn-container">
             <button>Ver hotel</button>

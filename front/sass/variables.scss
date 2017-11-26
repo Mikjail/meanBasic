@@ -1,0 +1,48 @@
+/*  ===============================================================
+    CONSTANTES SASS
+    =============================================================== */
+ 
+ 
+ /* Colores
+    =============================================================== */
+ $color-blue :               blue;
+ $color-lightblue :          lightblue;
+ 
+ /* Iconos 
+    =============================================================== */
+ 
+ /* Path iconos */
+ $path-amenities: '../assets/icons/amenities';
+ 
+ /* imagenes svg */
+ $bathrobes:                 url('#{$path-amenities}/bathrobes.svg');
+ $bathtub:                   url('#{$path-amenities}/bathtub.svg');
+ $beach:                     url('#{$path-amenities}/beach.svg');
+ $beach-pool-facilities:     url('#{$path-amenities}/beach-pool-facilities.svg');
+ $business-center:           url('#{$path-amenities}/business-center.svg');
+ $children-club:             url('#{$path-amenities}/children-club.svg');
+ $coffe-maker:               url('#{$path-amenities}/coffe-maker.svg');
+ $deep-soaking-bathtub:      url('#{$path-amenities}/deep-soaking-bathtub.svg');
+ $fitness-center:            url('#{$path-amenities}/fitness-center.svg');
+ $garden:                    url('#{$path-amenities}/garden.svg');
+ $kitchen-facilities:        url('#{$path-amenities}/kitchen-facilities.svg');
+ $newspaper:                 url('#{$path-amenities}/newspaper.svg');
+ $nightclub:                 url('#{$path-amenities}/nightclub.svg');
+ $restaurant:                url('#{$path-amenities}/restaurant.svg');
+ $safety-box:                url('#{$path-amenities}/safety-box.svg');
+ $separate-bredroom:         url('#{$path-amenities}/separate-bredroom.svg');
+ $sheets:                    url('#{$path-amenities}/sheets.svg');
+ 
+ /* Placeholders 
+    =============================================================== */
+ 
+ %bgContain {
+ 
+     /* Propiedades de background */
+     background-size: contain;
+     background-position: 50%;
+     background-repeat: no-repeat;
+ 
+     /* Otras */
+     height: 100%;
+ }

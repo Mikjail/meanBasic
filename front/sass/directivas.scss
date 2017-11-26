@@ -1,0 +1,110 @@
+/*  ===============================================================
+ +   ESTILOS DE DIRECTIVAS
+ +  =============================================================== */
+ @import "variables";
+ 
+ /* Estilo de hoteles 
+    =============================================================== */
+ .hotel {
+ 
+     .imagen {
+ 
+     }
+ 
+     .nombre-hotel {
+ 
+     }
+ 
+     .amenitie {
+         display: inline-block;
+         width: 25px;
+         height: 25px;
+     }
+ }
+ 
+ .amenitie {
+     .bathrobes {
+         @extend %bgContain;
+         background-image: $bathrobes;
+     }
+ 
+     .bathtub {
+         @extend %bgContain;
+         background-image: $bathtub;
+     }
+ 
+     .beach {
+         @extend %bgContain;
+         background-image: $beach;
+     }
+ 
+     .beach-pool-facilities {
+         @extend %bgContain;
+         background-image: $beach-pool-facilities;
+     }
+ 
+     .business-center {
+         @extend %bgContain;
+         background-image: $business-center;
+     }
+ 
+     .children-club {
+         @extend %bgContain;
+         background-image: $children-club;
+     }
+ 
+     .coffe-maker {
+         @extend %bgContain;
+         background-image: $coffe-maker;
+     }
+ 
+     .deep-soaking-bathtub {
+         @extend %bgContain;
+         background-image: $deep-soaking-bathtub;
+     }
+ 
+     .fitness-center {
+         @extend %bgContain;
+         background-image: $fitness-center;
+     }
+ 
+     .garden {
+         @extend %bgContain;
+         background-image: $garden;
+     }
+ 
+     .kitchen-facilities {
+         @extend %bgContain;
+         background-image: $kitchen-facilities;
+     }
+ 
+     .newspaper {
+         @extend %bgContain;
+         background-image: $newspaper;
+     }
+ 
+     .nightclub {
+         @extend %bgContain;
+         background-image: $nightclub;
+     }
+ 
+     .restaurant {
+         @extend %bgContain;
+         background-image: $restaurant;
+     }
+ 
+     .safety-box {
+         @extend %bgContain;
+         background-image: $safety-box;
+     }
+ 
+     .separate-bredroom {
+         @extend %bgContain;
+         background-image: $separate-bredroom;
+     }
+ 
+     .sheets {
+         @extend %bgContain;
+         background-image: $sheets;
+     }
+ }
