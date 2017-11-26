@@ -8,6 +8,7 @@ function mainController($scope, $http) {
 	$scope.Hotels = {};
 	$scope.selected = false;
 
+	//Mock hotel
 	$scope.hoteles = [{
 		    "id": "249942",
 		    "name": "Hotel Stefanos",
@@ -23,19 +24,34 @@ function mainController($scope, $http) {
 		    ]
 		  },
 		  {
-		    "id": "161901",
-		    "name": "Hotel Santa Cruz",
-		    "stars": 3,
-		    "price": 1267.57,
-		    "image": "6623490_6_b.jpg",
-		    "amenities": [
-		      "nightclub",
-		      "business-center",
-		      "bathtub",
-		      "newspaper",
-		      "restaurant"
-		    ]
-		  }];
+			"id": "161914",
+			"name": "NM Lima Hotel",
+			"stars": 4,
+			"price": 1445.5,
+			"image": "981018_26_b.jpg",
+			"amenities": [
+			  "business-center",
+			  "nightclub",
+			  "deep-soaking-bathtub",
+			  "fitness-center",
+			  "garden"
+			]
+		 },
+		 {
+			"id": "427467",
+			"name": "Royal Inca Hotel",
+			"stars": 2,
+			"price": 683.5,
+			"image": "6900423_6_b.jpg",
+			"amenities": [
+			  "newspaper",
+			  "coffe-maker",
+			  "safety-box",
+			  "kitchen-facilities",
+			  "bathtub"
+			]
+		  }
+		];
 
 	// Obtenemos todos los datos de la base de datos
 	$http.get('/api/Hotel').success(function(data) {
