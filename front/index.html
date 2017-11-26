@@ -7,6 +7,7 @@
 	<title>EXAM-ALMUNDO</title>
 	<!-- Custom styles for this template -->
 	<link href="assets/css/layout.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Cargamos bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -35,51 +36,53 @@
 				<!-- Aside de  filtros -->
 				aside
 				<div class="panel-group" id="filterCollapse">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#filterCollapse">
-											Filtros
-									</a>
-								</h4>
-							</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<p data-toggle="collapse" data-parent="#filterCollapse" style="font-weight:bold;font-size:15px;">
+								Filtros
+								</p>
+							</h4>
 						</div>
+					</div>
 				</div>
 
 				<div class="panel-group" id="nameCollapse">
 						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#nameCollapse" href="#searchName">
-											Nombre de hotel
-									</a>
-								</h4>
+						  <div class="panel-heading">
+							<h4 class="panel-title">
+							    <p class="accordion-toggle" data-toggle="collapse" data-parent="#nameCollapse" href="#searchName" style="font-weight:bold;font-size:15px;">
+							    <a class="fa fa-search" ng-click="showHotelName()"></a>
+							    Nombre de hotel
+							   </p>
+							</h4>
+						  </div>
+						  <div id="searchName" class="panel-collapse collapse in">
+							<div id="sn1" class="panel-body" ng-show='showsn1'>
+							  <input type="text" name="nameHotel" value="Ingrese el nombre del hotel">
+							  <button>Aceptar</button>
 							</div>
-							<div id="searchName" class="panel-collapse collapse in">
-								<div class="panel-body">
-									Buscar x nombre
-								</div>
-							</div>
+						  </div>
 						</div>
-				</div>
-
-				<div class="panel-group" id="startCollapse">
+					</div>
+			
+					<div class="panel-group" id="startCollapse">
 						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#startCollapse" href="#selectStart">
-										Estrellas
-									</a>
-								</h4>
+						  <div class="panel-heading">
+							<h4 class="panel-title">
+							  <p class="accordion-toggle" data-toggle="collapse" data-parent="#startCollapse" href="#selectStart" style="font-weight:bold;font-size:15px;">
+							  <a class="fa fa-star" ng-click="showStars()"></a>
+							  Estrellas
+							  </p>
+							</h4>
+						  </div>
+						  <div id="startCollapse" class="panel-collapse collapse in">
+							<div id="pb1" class="panel-body"  ng-show='showpb1'>
+							  estrellitas google
 							</div>
-							<div id="selectStart" class="panel-collapse collapse in">
-								<div class="panel-body">
-									estrellitas google
-								</div>
-							</div>
+						  </div>
 						</div>
-				</div>
-				
+					</div>
 			</div>
 			<div class="col-xs-12 col-md-8" style="background:pink">
 				<div ng-repeat="hotel in hoteles">

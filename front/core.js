@@ -110,6 +110,28 @@ function mainController($scope, $http) {
     function loaderHotel($scope, $http) {
 	$scope.hotel = $http.get('/api/Hotel');
 	console.log("nice:" + $scope.hotel);
-    }
+	}
+	
+	/**
+     * EFECTO PARA FLECHAS EN ACORDEON
+     */
+	$scope.showsn1 = false;
+	$scope.showHotelName = function(){
+		if(!$scope.showsn1){
+			$scope.showsn1 = true;
+		}else{
+			$scope.showsn1 = false;
+		}
+	};
+
+	$scope.showpb1 = false;
+	$scope.showStars = function(){
+		if(!$scope.showpb1){
+			$scope.showpb1 = true;
+		}else{
+			$scope.showpb1 = false;
+		}
+	};
+
 
 }
