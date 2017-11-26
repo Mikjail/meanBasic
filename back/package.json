@@ -1,0 +1,15 @@
+{
+  "name": "mostalmundo",
+  "version": "0.0.1",
+  "description": "modelo examen almundo",
+  "main": "server.js",
+  "author": "Vader",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

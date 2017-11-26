@@ -8,7 +8,7 @@ module.exports = function(app) {
 	// devolver hotel por id
 	app.get('/api/hotelById', Controller.getHotelById);
 	// devolver hotel por name
-	app.get('/api/hotelByName', Controller.getHotelByName);
+	app.get('/api/hotelByName', Controller.hotelByName);
 	// devolver hotel por start
 	app.get('/api/hotelByStart', Controller.getHotelByStart);
 	// Crear un nuevo Hotel
@@ -19,6 +19,6 @@ module.exports = function(app) {
 	app.delete('/api/hotel/:hotel_id', Controller.removeHotel);
 	// application 
 	app.get('*', function(req, res) {
-		res.sendfile('./front/index.html'); 
+		res.sendFile('/Users/mikjailsalazar/Desktop/workshops/almundo/most/front/index.html'); 
 	});
 };
