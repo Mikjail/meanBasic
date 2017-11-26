@@ -8,7 +8,9 @@
 	<!-- Custom styles for this template -->
 	<link href="assets/css/layout.min.css" rel="stylesheet">
 	<!-- Cargamos bootstrap -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<!-- Custom styles -->
 	<link href="css/app.css" rel="stylesheet">
 	<!-- Cargamos angular -->
@@ -32,6 +34,52 @@
 			<div class="col-xs-12 col-md-4" style="background:green">
 				<!-- Aside de  filtros -->
 				aside
+				<div class="panel-group" id="filterCollapse">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#filterCollapse">
+											Filtros
+									</a>
+								</h4>
+							</div>
+						</div>
+				</div>
+
+				<div class="panel-group" id="nameCollapse">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#nameCollapse" href="#searchName">
+											Nombre de hotel
+									</a>
+								</h4>
+							</div>
+							<div id="searchName" class="panel-collapse collapse in">
+								<div class="panel-body">
+									Buscar x nombre
+								</div>
+							</div>
+						</div>
+				</div>
+
+				<div class="panel-group" id="startCollapse">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+									<a data-toggle="collapse" data-parent="#startCollapse" href="#selectStart">
+										Estrellas
+									</a>
+								</h4>
+							</div>
+							<div id="selectStart" class="panel-collapse collapse in">
+								<div class="panel-body">
+									estrellitas google
+								</div>
+							</div>
+						</div>
+				</div>
+				
 			</div>
 			<div class="col-xs-12 col-md-8" style="background:pink">
 				<div ng-repeat="hotel in hoteles">

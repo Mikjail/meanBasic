@@ -1,21 +1,9 @@
-/* ===============================================================
-   CONSTANTES SASS
+/* Estilo aside 
    =============================================================== */
-/* Colores
-   =============================================================== */
-/* Iconos 
-   =============================================================== */
-/* Path iconos */
-/* imagenes svg */
-/* Placeholders 
-   =============================================================== */
-.amenitie .bathrobes, .amenitie .bathtub, .amenitie .beach, .amenitie .beach-pool-facilities, .amenitie .business-center, .amenitie .children-club, .amenitie .coffe-maker, .amenitie .deep-soaking-bathtub, .amenitie .fitness-center, .amenitie .garden, .amenitie .kitchen-facilities, .amenitie .newspaper, .amenitie .nightclub, .amenitie .restaurant, .amenitie .safety-box, .amenitie .separate-bredroom, .amenitie .sheets {
-  /* Propiedades de background */
-  background-size: contain;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  /* Otras */
-  height: 100%;
+   .sbox-ui-container {
+    background-color: #FFF157;
+    padding: 15px 10px 15px 10px;
+    box-sizing: border-box;
 }
 
 /* ===============================================================
