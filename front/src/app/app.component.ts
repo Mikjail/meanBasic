@@ -37,16 +37,18 @@ export class AppComponent {
   }
 
   setCheckBoxValue(event){
-    if(event.srcElement.checked &&
-      event.srcElement.value != ''){
+    if( event.srcElement.value != ''){
+      if(event.srcElement.checked){
         this.hotel.star.push(event.srcElement.value);
-      
-    }else{
+      }else{
+
      let index =  this.hotel.star.indexOf((event.srcElement.value));
-      this.hotel.star.splice(index, 1);
+     this.hotel.star.splice(index, 1);
+      }
     }
     console.log(this.hotel.star)
   }
+
   arrayStar(numArray:string){
     let test = new Array<any>(parseFloat(numArray));
     return test;

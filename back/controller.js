@@ -63,17 +63,17 @@ function SearchCriteria (){
 	 this.setHotelStar = function(star) {
 		if(!this.search.stars) this.search.stars = {}
 		
-		this.search.stars = parseInt(star)
+		this.search.stars= star;
 	};
 
 	this.setHotelNameAndStar= function(name, stars) {
-		// if(!this.search.$or) this.search.$or = []
+		if(!this.search.$or) this.search.$or = []
 		if(stars.length>1){
 			stars.forEach((star)=>{
-				this.search.$or.push({ name: name, stars: star })
+				this.search.$or.push({ name: { $regex: new RegExp('.'+name+'.','i')},  stars: star })
 			})
 		}else{
-			this.search = { name: {$regex:name }, stars: parseInt(stars) } ;
+			this.search = { name: { $regex: new RegExp('.'+name+'.','i')}, stars: stars } ;
 		}
 	}
 }

@@ -90,6 +90,8 @@
         </div>
       </div>
     </div>
+    <ng-container *ngIf="hotels.length > 0">
+
     <div class="col-sm-8 col-xs-12 panel-list" [ngClass]="{'col-sm-offset-4': i > 1}" *ngFor="let hotel of hotels; let i = index">
       <div class="col-sm-4 col-xs-12 text-center">
         <img src='./assets/images/hotels/{{hotel.image}}'  height='100%' width='100%'  alt="">
@@ -120,5 +122,17 @@
         </div>
 
     </div>
+  </ng-container>
+  <ng-container *ngIf="hotels.length <1">
+      <div class="col-sm-8 panel-not-found">
+        <h1>
+          Lo Sentimos
+        </h1>
+        <p>
+          No encontramos datos que coincidan con la busqueda.
+        </p>
+      </div>
+  </ng-container>
+    
   </div>
 </div>
