@@ -71,11 +71,11 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8 panel-list" [ngClass]="{'col-sm-offset-4': i > 1}" *ngFor="let hotel of hotels; let i = index">
-      <div class="col-sm-4">
-        <img src='./assets/images/hotels/{{hotel.image}}' height='190px' width='260px'  alt="">
+    <div class="col-sm-8 col-xs-12 panel-list" [ngClass]="{'col-sm-offset-4': i > 1}" *ngFor="let hotel of hotels; let i = index">
+      <div class="col-sm-4 col-xs-12 text-center">
+        <img src='./assets/images/hotels/{{hotel.image}}'  height='100%' width='100%'  alt="">
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xs-12 hotel-details">
           <h5>{{hotel.name}}</h5>
           <p>{{hotel.stars}}</p>
           <ng-container *ngFor="let amenity of hotel.amenities">
@@ -83,7 +83,7 @@
           </ng-container>
 
         </div>
-        <div class="col-sm-4 price-detail">
+        <div class="col-sm-4 col-xs-12 price-detail">
             <p>Precio por noche por</p>
             <p>habitacion</p>
             <!-- tambien podemos utilizar {{hotel.price | currency}} -->

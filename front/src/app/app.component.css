@@ -49,18 +49,26 @@ p{
     background-color: white;
     margin-bottom: 20px;
     padding: 10px;
-    width: 65%;
     -webkit-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
     -moz-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
     box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
 }
+@media (min-width: 768px){
+    .panel-list{
+        width: 65%;
+        padding: 10px;
+    }
+}
 .price-detail{
     text-align: center;
     border-left: 1px dashed;
-    padding: 5%;
 }
 .currency{
     font-size: 26px;
     font-weight: 300;
-    
+}
+@media (max-width: 768px){
+.hotel-details{
+    text-align:center; 
+}
 }
