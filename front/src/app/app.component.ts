@@ -6,7 +6,8 @@ import { HotelService } from './service/hotel.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public filterForm: any={};
+  public hotel= { name:'', star:[]}
   public hotels;
  
   constructor(private hotelService: HotelService ) {
@@ -24,6 +25,31 @@ export class AppComponent {
       error => console.log(error),
       () => console.log("finished")
     );  
+  }
+
+  getByCriteria(){
+    console.log(this.hotel)
+    
+    this.hotelService.getBySearch(this.hotel).subscribe(
+      data => this.hotels = data,
+      error => console.log(error)
+    )
+  }
+
+  setCheckBoxValue(event){
+    if(event.srcElement.checked &&
+      event.srcElement.value != ''){
+        this.hotel.star.push(event.srcElement.value);
+      
+    }else{
+     let index =  this.hotel.star.indexOf((event.srcElement.value));
+      this.hotel.star.splice(index, 1);
+    }
+    console.log(this.hotel.star)
+  }
+  arrayStar(numArray:string){
+    let test = new Array<any>(parseFloat(numArray));
+    return test;
   }
 
 

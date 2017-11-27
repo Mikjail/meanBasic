@@ -20,6 +20,10 @@ p{
     -moz-box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
     box-shadow: 1px 3px 1px 1px rgba(0,0,0,0.08);
 }
+.almundo-icons{
+    width: 20px;
+    height:20px
+}
 .searchImg{
     background: url('../assets/icons/filters/search.svg');
     background-size: 20px 17px;
@@ -39,7 +43,19 @@ p{
     color:#8BABBF;
     margin-top:10px;
 }
+.starHotel1{
+    background: url('../assets/icons/filters/starHotel.svg');
+    background-size: 20px 17px;
+    height: 17px;
+    width: 20px;
+    display:inline-block;
+}
 
+
+.starsRate{
+    margin-bottom: 20px;
+    padding-left:0px;
+}
 .btn-default{
     background-color: #002B7D;
     color: white;

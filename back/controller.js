@@ -1,9 +1,9 @@
 var Hotel = require('./modelo/hotel');
 
 // Obtiene todos los objetos Hotel de la base de datos
-const getHotel = function (req, res){
+const getHotel = (req, res) =>{
 	Hotel.find({},
-		function(err, Hotel) {
+		(err, Hotel) => {
 			console.log(Hotel);
 			console.log(err);
 			if (err)
@@ -14,9 +14,31 @@ const getHotel = function (req, res){
 }
 
 // Obtiene Hotel de la base de datos por id
-const getHotelById = function (req, res){
+const getHotelById = (req, res) =>{
 	Hotel.find({_id : req.params.Hotel_id},
-		function(err, Hotel) {
+		(err, Hotel) => {
+			if (err)
+				res.send(err)
+					res.json(Hotel); // devuelve todas las Hotels en JSON		
+				}
+			);
+}
+// Obtiene Hotel de la base de datos por name
+const hotelByNameAndStar = (req, res) =>{
+	console.log(req.query);
+	console.log(searchCriteria);
+	console.log()
+	if(req.query.name && req.query.name != '' && req.query.star){
+		searchCriteria.setHotelNameAndStar(req.query.name,req.query.star);
+	}
+	else{
+		if(req.query.name) searchCriteria.setHotelName(req.query.name);
+		if(req.query.star) searchCriteria.setHotelStar(req.query.star);		
+	}
+	console.log(searchCriteria.build());
+	Hotel.find(searchCriteria.build(),
+		(err, Hotel) => {
+			console.log(Hotel)
 			if (err)
 				res.send(err)
 					res.json(Hotel); // devuelve todas las Hotels en JSON		
@@ -24,10 +46,42 @@ const getHotelById = function (req, res){
 			);
 }
 
+const searchCriteria ={
+	 search: {}, 
+
+	 build : function(){
+		 console.log(this.search);
+		 return this.search;
+	 },
+	 
+	 setHotelName: function(name) {
+		 console.log(this.search);
+		if(!this.search.name) this.search.name = {};
+		 this.search.name = { $regex: new RegExp('.'+name+'.','i')};	
+	},
+
+	 setHotelStar: function(star) {
+		if(!this.search.stars) this.search.stars = {}
+		
+		this.search.stars = parseFloat(star)
+	},
+
+	setHotelNameAndStar: function(name, stars) {
+		// if(!this.search.$or) this.search.$or = []
+		if(stars.length>1){
+			stars.forEach((star)=>{
+				this.search.$or.push({ name: name, stars: star })
+			})
+		}else{
+			this.search = { name: {$regex:name }, stars: parseFloat(stars) } ;
+		}
+	}
+}
+
 // Obtiene Hotel de la base de datos por name
-const hotelByName = function (req, res){
+const hotelByName = (req, res) =>{
 	Hotel.find({_name : req.params.Hotel_name},
-		function(err, Hotel) {
+		(err, Hotel) => {
 			if (err)
 				res.send(err)
 					res.json(Hotel); // devuelve todas las Hotels en JSON		
@@ -36,9 +90,9 @@ const hotelByName = function (req, res){
 }
 
 // Obtiene Hotel de la base de datos por start
-const getHotelByStart = function (req, res){
+const getHotelByStart = (req, res) =>{
 	Hotel.find({_start : req.params.Hotel_start},
-		function(err, Hotel) {
+		(err, Hotel) => {
 			if (err)
 				res.send(err)
 					res.json(Hotel); // devuelve todas las Hotels en JSON		
@@ -52,11 +106,11 @@ const setHotel = function(req, res) {
 		// Creo el objeto Hotel
 		Hotel.create(
 			{name : req.body.name,stars: req.body.stars, price: req.body.price,image: req.body.image,amenities: req.body.amenities}, 
-			function(err, Hotel) {
+			(err, Hotel) => {
 				if (err)
 					res.send(err);
 				// Obtine y devuelve todas las Hotels tras crear una de ellas
-				Hotel.find(function(err, Hotel) {
+				Hotel.find((err, Hotel) => {
 				 	if (err)
 				 		res.send(err)
 				 	res.json(Hotel);
@@ -69,11 +123,11 @@ const setHotel = function(req, res) {
 const updateHotel = function(req, res){
 	Hotel.update( {_id : req.params.Hotel_id},
 					{$set:{name : req.body.name,stars: req.body.stars, price: req.body.price,image: req.body.image,amenities: req.body.amenities}}, 
-					function(err, Hotel) {
+					(err, Hotel) => {
 						if (err)
 							res.send(err);
 				// Obtine y devuelve todas las Hotels tras crear una de ellas
-				Hotel.find(function(err, Hotel) {
+				Hotel.find((err, Hotel) => {
 				 	if (err)
 				 		res.send(err)
 				 	res.json(Hotel);
@@ -83,11 +137,11 @@ const updateHotel = function(req, res){
 
 // Elimino un objeto Hotel de la base de Datos
 const removeHotel = function(req, res) {
-	Hotel.remove({_id : req.params.Hotel_id}, function(err, Hotel) {
+	Hotel.remove({_id : req.params.Hotel_id}, (err, Hotel) => {
 		if (err)
 			res.send(err);
 			// Obtine y devuelve todas las Hotels tras borrar una de ellas
-			Hotel.find(function(err, Hotel) {
+			Hotel.find((err, Hotel) => {
 				if (err)
 					res.send(err)
 				res.json(Hotel);
@@ -102,5 +156,6 @@ module.exports = {
 	getHotelByStart : getHotelByStart,
 	setHotel : setHotel,
 	updateHotel: updateHotel,
-	removeHotel : removeHotel
+	removeHotel : removeHotel,
+	hotelByNameAndStar: hotelByNameAndStar
 }

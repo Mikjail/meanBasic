@@ -12,6 +12,11 @@ mongoose.connect('mongodb://localhost:27017/Most', {
   }); 	// Hacemos la conexión a la base de datos de Mongo con nombre "Most"
 
 app.use(cors())
+app.use('/',
+  express.static(
+  'dist'
+  )
+)
   
 let  db = mongoose.connection;
 

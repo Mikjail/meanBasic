@@ -26,11 +26,17 @@
           <h5> Nombre del hotel</h5>
         </div>
         <div class="col-sm-12">
-          <form class="form-inline">
+          <form class="form-inline" name="form" (ngSubmit)="getByCriteria()"  novalidate>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Ingrese el nombre del hotel" id="hotel">
+              <input type="text" 
+              class="form-control" 
+              placeholder="Ingrese el nombre del hotel" 
+              [(ngModel)]="hotel.name" 
+              name="name"
+              id="hotel">
             </div>
-            <button type="submit" class="btn btn-default">Aceptar</button>
+            <button [disabled]="loading" class="btn  btn-default">Aceptar</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
           </form>
         </div>
       </div>
@@ -45,27 +51,40 @@
         </div>
         <div class="col-sm-12 subpanel-filter">
           <label class="checkbox-inline">
-            <input type="checkbox" value="">Todas las estrellas
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="">Todas las estrellas
           </label>
           <br>
           <label class="checkbox-inline">
-            <input type="checkbox" value="">5
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="5">
+            <ng-container *ngFor="let stars of [0,1,2,3,4]">
+                <div class="starHotel1"></div>
+            </ng-container>  
           </label>
           <br>
           <label class="checkbox-inline">
-            <input type="checkbox" value="">4
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="4">
+            <ng-container *ngFor="let stars of [0,1,2,3]">
+                <div class="starHotel1"></div>
+            </ng-container>  
           </label>
           <br>
           <label class="checkbox-inline">
-            <input type="checkbox" value="">3
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="3">
+            <ng-container *ngFor="let stars of [0,1,2]">
+                <div class="starHotel1"></div>
+            </ng-container>  
           </label>
           <br>
           <label class="checkbox-inline">
-            <input type="checkbox" value="">2
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="2">
+            <ng-container *ngFor="let stars of [0,1]">
+                <div class="starHotel1"></div>
+            </ng-container>  
           </label>
           <br>
           <label class="checkbox-inline">
-            <input type="checkbox" value="">1
+            <input (change)="setCheckBoxValue($event)" type="checkbox" value="1">
+            <div class="starHotel1"></div>
           </label>
 
         </div>
@@ -76,12 +95,19 @@
         <img src='./assets/images/hotels/{{hotel.image}}'  height='100%' width='100%'  alt="">
       </div>
       <div class="col-sm-4 col-xs-12 hotel-details">
+          <!-- <div class="col-sm-12  col-xs-12 "> -->
           <h5>{{hotel.name}}</h5>
-          <p>{{hotel.stars}}</p>
+          <!-- </div> -->
+          <div class="col-sm-12  col-xs-12 starsRate">
+          <ng-container *ngFor="let stars of arrayStar(hotel.stars); let i = index;">
+              <div class="starHotel1"></div>
+          </ng-container>
+        </div>
+        <!-- <div class="col-sm-12  col-xs-12 "> -->
           <ng-container *ngFor="let amenity of hotel.amenities">
               <img src="./assets/icons/amenities/{{amenity}}.svg"  height='20px' width='20px' alt="">
           </ng-container>
-
+        <!-- </div> -->
         </div>
         <div class="col-sm-4 col-xs-12 price-detail">
             <p>Precio por noche por</p>
