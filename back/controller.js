@@ -25,9 +25,10 @@ const getHotelById = (req, res) =>{
 }
 // Obtiene Hotel de la base de datos por name
 const hotelByNameAndStar = (req, res) =>{
-	console.log(req.query);
-	console.log(searchCriteria);
-	console.log()
+	// console.log(req.query);
+	// console.log(searchCriteria);
+	// console.log()
+	let searchCriteria = new SearchCriteria();
 	if(req.query.name && req.query.name != '' && req.query.star){
 		searchCriteria.setHotelNameAndStar(req.query.name,req.query.star);
 	}
@@ -46,34 +47,33 @@ const hotelByNameAndStar = (req, res) =>{
 			);
 }
 
-const searchCriteria ={
-	 search: {}, 
+function SearchCriteria (){
+	this.search=  {};
 
-	 build : function(){
-		 console.log(this.search);
+	 this.build = function(){
 		 return this.search;
-	 },
+	 };
 	 
-	 setHotelName: function(name) {
+	 this.setHotelName = function(name) {
 		 console.log(this.search);
 		if(!this.search.name) this.search.name = {};
 		 this.search.name = { $regex: new RegExp('.'+name+'.','i')};	
-	},
+	}
 
-	 setHotelStar: function(star) {
+	 this.setHotelStar = function(star) {
 		if(!this.search.stars) this.search.stars = {}
 		
-		this.search.stars = parseFloat(star)
-	},
+		this.search.stars = parseInt(star)
+	};
 
-	setHotelNameAndStar: function(name, stars) {
+	this.setHotelNameAndStar= function(name, stars) {
 		// if(!this.search.$or) this.search.$or = []
 		if(stars.length>1){
 			stars.forEach((star)=>{
 				this.search.$or.push({ name: name, stars: star })
 			})
 		}else{
-			this.search = { name: {$regex:name }, stars: parseFloat(stars) } ;
+			this.search = { name: {$regex:name }, stars: parseInt(stars) } ;
 		}
 	}
 }
